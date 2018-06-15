@@ -14,16 +14,22 @@ class Fixture:
     def __init__(self, team_a: Team, team_b: Team, when: datetime, group: str = {"X"}, score: str = None):
         self.team_a = team_a
         self.team_b = team_b
-        self.when = when
+        self.when = datetime.datetime.strptime(when, "%d/%m/%Y")
         self.group = group
         self.score = Score(score)
 
     def __str__(self):
         return "Group {4}: {0} {3} {1} [{2}]".format(self.team_a,
                                                      self.team_b,
-                                                     self.when,
+                                                     datetime.datetime.strftime(self.when, "%d/%m/%Y"),
                                                      self.score,
                                                      self.group)
+
+    def is_played(self):
+        if self.score.is_valid() is True:
+            return True
+        else:
+            return False
 
 
 class Score:
@@ -34,6 +40,7 @@ class Score:
 
     EXACT = 3
     CORRECT = 1
+    WRONG = 0
 
     def __init__(self, score: str = None):
         if score is not None and score.find(":") > 0:
@@ -103,6 +110,7 @@ class FixtureFactory:
 
             # For each row in the file....
             for row in reader:
+                print(str(row))
                 group = row.get("Group")
                 team_a = row.get("TeamA")
                 team_b = row.get("TeamB")
@@ -134,9 +142,12 @@ class FixtureFactory:
 
     def print(self):
 
+        print("\nResults")
         for fixture in self.fixtures:
-            print(fixture)
+            if fixture.is_played() is True:
+                print(fixture)
 
+        print("\nPredictions")
         for player in self.predictions.keys():
             print("Player {0} predictions".format(player))
             for prediction in self.predictions[player]:
