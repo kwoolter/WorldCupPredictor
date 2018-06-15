@@ -24,6 +24,14 @@ class Fixture:
                                                      self.group)
 
 class Score:
+
+    WIN = "win"
+    DRAW = "draw"
+    LOSE = "lose"
+
+    EXACT = 3
+    CORRECT = 1
+
     def __init__(self, score : str =  None):
         if score is not None:
             a,b = score.split(":")
@@ -36,8 +44,27 @@ class Score:
     def __str__(self):
         return "{0}:{1}".format(self.score_a, self.score_b)
 
+
+    def result(self):
+
+        if self.score_a > self.score_b:
+            return Score.WIN
+        elif self.score_a == self.score_b:
+            return Score.DRAW
+        else:
+            return Score.LOSE
+
+
     def compare(self, other_score):
-        return
+
+        points = 0
+
+        if self.score_a == other_score.score_a and self.score_b == other_score.score_b:
+            points = Score.EXACT
+        elif self.result() == other_score.result():
+            points = Score.CORRECT
+
+        return points
 
 class Player:
     def __init__(self, name : str):
@@ -47,6 +74,7 @@ class FixtureFactory:
     def __init__(self):
         self.fixtures = []
         self.predictions = {}
+        self.scores = {}
 
     def load(self):
         print("\nLoading fixtures...")
@@ -80,9 +108,15 @@ class FixtureFactory:
                     if player_name not in self.predictions.keys():
                         self.predictions[player_name] = []
 
-                    self.predictions[player_name].append(Fixture(team_a, team_b, when, group, prediction))
+                    if player_name not in self.scores.keys():
+                        self.scores[player_name] = 0
 
-            # Close the file
+                    self.predictions[player_name].append(Fixture(team_a, team_b, when, group, prediction))
+                    actual = Score(score)
+                    predo = Score(prediction)
+                    self.scores[player_name] += actual.compare(predo)
+
+                # Close the file
             object_file.close()
 
     def print(self):
@@ -95,3 +129,7 @@ class FixtureFactory:
             print("Player {0} predictions".format(player))
             for prediction in self.predictions[player]:
                 print(prediction)
+
+
+        for player in self.scores.keys():
+            print("Player {0}: {1}".format(player, self.scores[player]))
