@@ -46,6 +46,7 @@ class Player:
 class FixtureFactory:
     def __init__(self):
         self.fixtures = []
+        self.predictions = {}
 
     def load(self):
         print("\nLoading fixtures...")
@@ -69,6 +70,17 @@ class FixtureFactory:
 
                 self.fixtures.append(Fixture(team_a, team_b, when, group, score))
 
+                # loop through all of the header fields except the first 5 columns...
+                for i in range(5, len(header)):
+
+                    player_name = header[i]
+                    # Get the next field name from the header row
+                    prediction = row.get(player_name)
+
+                    if player_name not in self.predictions.keys():
+                        self.predictions[player_name] = []
+
+                    self.predictions[player_name].append(Fixture(team_a, team_b, when, group, prediction))
 
             # Close the file
             object_file.close()
@@ -78,3 +90,8 @@ class FixtureFactory:
         for fixture in self.fixtures:
             print(fixture)
 
+
+        for player in self.predictions.keys():
+            print("Player {0} predictions".format(player))
+            for prediction in self.predictions[player]:
+                print(prediction)
