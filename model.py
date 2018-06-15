@@ -17,13 +17,18 @@ class Fixture:
         self.when = datetime.datetime.strptime(when, "%d/%m/%Y")
         self.group = group
         self.score = Score(score)
+        self.points = None
 
     def __str__(self):
-        return "Group {4}: {0} {3} {1} [{2}]".format(self.team_a,
+        str = "Group {4}: {0} {3} {1} [{2}]".format(self.team_a,
                                                      self.team_b,
                                                      datetime.datetime.strftime(self.when, "%d/%m/%Y"),
                                                      self.score,
                                                      self.group)
+        if self.points is not None:
+            str += "(points={0})".format(self.points)
+
+        return str
 
     def is_played(self):
         if self.score.is_valid() is True:
@@ -43,6 +48,7 @@ class Score:
     WRONG = 0
 
     def __init__(self, score: str = None):
+
         if score is not None and score.find(":") > 0:
             a, b = score.split(":")
             self.score_a = int(a)
@@ -123,8 +129,9 @@ class FixtureFactory:
                 for i in range(5, len(header)):
 
                     player_name = header[i]
+
                     # Get the next field name from the header row
-                    prediction = row.get(player_name)
+                    predicted_score = row.get(player_name)
 
                     if player_name not in self.predictions.keys():
                         self.predictions[player_name] = []
@@ -132,12 +139,16 @@ class FixtureFactory:
                     if player_name not in self.scores.keys():
                         self.scores[player_name] = 0
 
-                    self.predictions[player_name].append(Fixture(team_a, team_b, when, group, prediction))
+                    prediction = Fixture(team_a, team_b, when, group, predicted_score)
                     actual = Score(score)
-                    predo = Score(prediction)
-                    self.scores[player_name] += actual.compare(predo)
+                    predo = Score(predicted_score)
+                    points = actual.compare(predo)
+                    prediction.points = points
+                    self.scores[player_name] += points
+                    self.predictions[player_name].append(prediction)
+                    #print("Player {0} score {1}".format(player_name,self.scores[player_name]))
 
-                    # Close the file
+            # Close the file
             object_file.close()
 
     def print(self):
@@ -159,6 +170,7 @@ class FixtureFactory:
             # print("Player {0}: {1}".format(player, self.scores[player]))
             hst.add(player, self.scores[player])
 
+        print("\n")
         hst.print()
 
 

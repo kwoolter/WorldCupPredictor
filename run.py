@@ -7,5 +7,5 @@ def main():
     fixtures.print()
 
 
-
-main()
+if __name__ == "__main__":
+    main()
