@@ -21,10 +21,10 @@ class Fixture:
 
     def __str__(self):
         str = "Group {4}: {0} {3} {1} [{2}]".format(self.team_a,
-                                                     self.team_b,
-                                                     datetime.datetime.strftime(self.when, "%d/%m/%Y"),
-                                                     self.score,
-                                                     self.group)
+                                                    self.team_b,
+                                                    datetime.datetime.strftime(self.when, "%d/%m/%Y"),
+                                                    self.score,
+                                                    self.group)
         if self.points is not None:
             str += "(points={0})".format(self.points)
 
@@ -130,7 +130,7 @@ class FixtureFactory:
                 if group not in self.groups.keys():
                     self.groups[group] = set()
 
-                self.groups[group] = self.groups[group] |  {team_a, team_b}
+                self.groups[group] = self.groups[group] | {team_a, team_b}
                 self.teams = self.teams | {team_a, team_b}
 
                 # loop through all of the header fields except the first 5 columns...
@@ -154,7 +154,7 @@ class FixtureFactory:
                     prediction.points = points
                     self.scores[player_name] += points
                     self.predictions[player_name].append(prediction)
-                    #print("Player {0} score {1}".format(player_name,self.scores[player_name]))
+                    # print("Player {0} score {1}".format(player_name,self.scores[player_name]))
 
             # Close the file
             object_file.close()
@@ -182,14 +182,25 @@ class FixtureFactory:
             for prediction in self.predictions[player]:
                 print(prediction)
 
+
+    def print_player_scores(self):
         hst = HighScoreTable("World Cup Predictor")
 
         for player in self.scores.keys():
             # print("Player {0}: {1}".format(player, self.scores[player]))
             hst.add(player, self.scores[player])
 
-        print("\n")
         hst.print()
+        print("\n")
+
+    def print_groups(self):
+        print("\nGroups")
+        for group in sorted(list(self.groups.keys())):
+            teams = sorted(list(self.groups[group]))
+            print("Group {0}:".format(group))
+            for team in teams:
+                print("\t{0}".format(team))
+        print("\n")
 
 
 from operator import itemgetter
