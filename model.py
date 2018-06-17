@@ -101,6 +101,8 @@ class FixtureFactory:
         self.fixtures = []
         self.predictions = {}
         self.scores = {}
+        self.groups = {}
+        self.teams = set()
 
     def load(self):
         print("\nLoading fixtures...")
@@ -124,6 +126,12 @@ class FixtureFactory:
                 score = row.get("Score")
 
                 self.fixtures.append(Fixture(team_a, team_b, when, group, score))
+
+                if group not in self.groups.keys():
+                    self.groups[group] = set()
+
+                self.groups[group] = self.groups[group] |  {team_a, team_b}
+                self.teams = self.teams | {team_a, team_b}
 
                 # loop through all of the header fields except the first 5 columns...
                 for i in range(5, len(header)):
@@ -152,6 +160,16 @@ class FixtureFactory:
             object_file.close()
 
     def print(self):
+
+        print("\nTeams")
+        print("{0}".format(self.teams))
+
+        print("\nGroups")
+        for group in sorted(list(self.groups.keys())):
+            teams = sorted(list(self.groups[group]))
+            print("Group {0}:".format(group))
+            for team in teams:
+                print("\t{0}".format(team))
 
         print("\nResults")
         for fixture in self.fixtures:
