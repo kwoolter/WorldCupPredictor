@@ -18,6 +18,31 @@ class Team:
     def points(self):
         return self.won * 3 + self.drawn
 
+    @property
+    def played(self):
+        return self.won + self.drawn + self.lost
+
+
+    @property
+    def goal_diff(self):
+        return self.goals_for - self.goals_against
+
+
+    def __lt__(self, other_team):
+        if self.points > other_team.points:
+            return False
+        elif self.points < other_team.points:
+            return True
+        else:
+            if self.goal_diff > other_team.goal_diff:
+                return False
+            elif self.goal_diff < other_team.goal_diff:
+                return True
+            elif self.goals_for < other_team.goals_for:
+                return True
+            else:
+                return self.name > other_team.name
+
 
 class Fixture:
     def __init__(self, team_a: Team, team_b: Team, when: datetime, group: str = {"X"}, score: str = None):
@@ -169,7 +194,7 @@ class FixtureFactory:
                 if group not in self.groups.keys():
                     self.groups[group] = set()
 
-                self.groups[group] = self.groups[group] | {team_a, team_b}
+                self.groups[group] = self.groups[group] | {team_a_name, team_b_name}
 
 
 
@@ -236,10 +261,18 @@ class FixtureFactory:
     def print_groups(self):
         print("\nGroups")
         for group in sorted(list(self.groups.keys())):
-            teams = sorted(list(self.groups[group]))
-            print("Group {0}:".format(group))
+            team_names = list(self.groups[group])
+            teams = []
+            for team_name in team_names:
+                teams.append(self.teams[team_name])
+
+            teams.sort(reverse=True)
+            print("\nGroup {0}".format(group))
+            row_format =  "{0:^14} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3}"
+            print(row_format.format("Team","W","D","L","F","A","GD","Pts"))
             for team in teams:
-                print("\t{0}".format(team))
+                print(row_format.format(team.name, team.won, team.drawn, team.lost,
+                                        team.goals_for, team.goals_against, team.goal_diff, team.points))
         print("\n")
 
 
