@@ -40,3 +40,10 @@ class WCCLI(cmd.Cmd):
             self.model.print_groups()
         except Exception as err:
             print(str(err))
+
+    def do_teams(self, args):
+        """Print Teams"""
+        try:
+            self.model.print_teams()
+        except Exception as err:
+            print(str(err))

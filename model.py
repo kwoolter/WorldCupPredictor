@@ -5,9 +5,18 @@ import datetime
 class Team:
     def __init__(self, name):
         self.name = name
+        self.won = 0
+        self.lost = 0
+        self.drawn = 0
+        self.goals_for = 0
+        self.goals_against = 0
 
     def __str__(self):
         return self.name
+
+    @property
+    def points(self):
+        return self.won * 3 + self.drawn
 
 
 class Fixture:
@@ -35,6 +44,25 @@ class Fixture:
             return True
         else:
             return False
+
+    def calc_stats(self):
+
+        if self.score.is_valid() is True:
+
+            self.team_a.goals_for += self.score.score_a
+            self.team_a.goals_against += self.score.score_b
+            self.team_b.goals_for += self.score.score_b
+            self.team_b.goals_against += self.score.score_a
+
+            if self.score.result() == Score.WIN:
+                self.team_a.won += 1
+                self.team_b.lost += 1
+            elif self.score.result() == Score.DRAW:
+                self.team_a.drawn += 1
+                self.team_b.drawn += 1
+            if self.score.result() == Score.LOSE:
+                self.team_b.won += 1
+                self.team_a.lost += 1
 
 
 class Score:
@@ -102,7 +130,7 @@ class FixtureFactory:
         self.predictions = {}
         self.scores = {}
         self.groups = {}
-        self.teams = set()
+        self.teams = {}
 
     def load(self):
         print("\nLoading fixtures...")
@@ -120,18 +148,30 @@ class FixtureFactory:
             for row in reader:
                 print(str(row))
                 group = row.get("Group")
-                team_a = row.get("TeamA")
-                team_b = row.get("TeamB")
+                team_a_name = row.get("TeamA")
+                team_b_name = row.get("TeamB")
                 when = row.get("When")
                 score = row.get("Score")
 
-                self.fixtures.append(Fixture(team_a, team_b, when, group, score))
+                if team_a_name not in self.teams.keys():
+                    self.teams[team_a_name] = Team(team_a_name)
+
+                if team_b_name not in self.teams.keys():
+                    self.teams[team_b_name] = Team(team_b_name)
+
+                team_a = self.teams[team_a_name]
+                team_b = self.teams[team_b_name]
+
+                result = Fixture(team_a, team_b, when, group, score)
+                result.calc_stats()
+                self.fixtures.append(result)
 
                 if group not in self.groups.keys():
                     self.groups[group] = set()
 
                 self.groups[group] = self.groups[group] | {team_a, team_b}
-                self.teams = self.teams | {team_a, team_b}
+
+
 
                 # loop through all of the header fields except the first 5 columns...
                 for i in range(5, len(header)):
@@ -202,6 +242,14 @@ class FixtureFactory:
                 print("\t{0}".format(team))
         print("\n")
 
+
+    def print_teams(self):
+        print("\nTeams")
+        for team_name in sorted(list(self.teams.keys())):
+            team = self.teams[team_name]
+            print("{0} {6}pts:W:{1} L:{2} D:{3} F:{4} A:{5}".format(team.name, team.won, team.lost, team.drawn,
+                                                                    team.goals_for, team.goals_against, team.points))
+        print("\n")
 
 from operator import itemgetter
 import pickle

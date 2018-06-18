@@ -1,49 +1,49 @@
-Group,TeamA,TeamB,When,Score,KAW,JHW
-A,Russia,Saudi Arabia,14/06/2018,05:00,,
-A,Egypt,Uruguay,15/06/2018,00:01,,
-B,Morocco,Iran,15/06/2018,00:01,00:00,01:00
-B,Portugal,Spain,15/06/2018,03:03,02:02,02:02
-C,France,Australia,16/06/2018,02:01,02:01,02:01
-C,Peru,Denmark,16/06/2018,00:01,01:02,00:01
-D,Argentina,Iceland,16/06/2018,01:01,03:01,03:00
-D,Croatia,Nigeria,16/06/2018,02:00,01:01,02:01
-E,Costa Rica,Serbia,17/06/2019,,01:01,
-E,Brazil,Switzerland,17/06/2019,,03:01,
-F,Germany,Mexico,17/06/2019,,02:00,
-F,Sweden,South Korea,18/06/2019,,02:00,
-G,Belgium,Panama,18/06/2019,,03:00,
-G,Tunisia,England,18/06/2019,,00:01,
-A,Russia,Egypt,19/06/2018,,,
-H,Colombia,Japan,19/06/2018,,,
-H,Poland,Senegal,19/06/2018,,,
-A,Uruguay,Saudi Arabia,20/06/2018,,,
-B,Portugal,Morocco,20/06/2018,,,
-B,Iran,Spain,20/06/2018,,,
-C,Denmark,Australia,21/06/2018,,,
-C,France,Peru,21/06/2018,,,
-D,Argentina,Croatia,21/06/2018,,,
-D,Nigeria,Iceland,22/06/2018,,,
-E,Brazil,Costa Rica,22/06/2018,,,
-E,Serbia,Switzerland,22/06/2018,,,
-F,South Korea,Mexico,23/06/2018,,,
-F,Germany,Sweden,23/06/2018,,,
-G,Belgium,Tunisia,23/06/2018,,,
-G,England,Panama,24/06/2018,,,
-H,Japan,Senegal,24/06/2018,,,
-H,Poland,Colombia,24/06/2018,,,
-A,Saudi Arabia,Egypt,25/06/2018,,,
-A,Uruguay,Russia,25/06/2018,,,
-B,Iran,Portugal,25/06/2018,,,
-B,Spain,Morocco,25/06/2018,,,
-C,Australia,Peru,26/06/2018,,,
-C,Denmark,France,26/06/2018,,,
-D,Iceland,Croatia,26/06/2018,,,
-D,Nigeria,Argentina,26/06/2018,,,
-E,Serbia,Brazil,27/06/2018,,,
-E,Switzerland,Costa Rica,27/06/2018,,,
-F,South Korea,Germany,27/06/2018,,,
-F,Mexico,Sweden,27/06/2018,,,
-G,England,Belgium,28/06/2018,,,
-G,Panama,Tunisia,28/06/2018,,,
-H,Japan,Poland,28/06/2018,,,
-H,Senegal,Colombia,28/06/2018,,,
+Group,TeamA,TeamB,When,Score,KAW,JHW,REW
+A,Russia,Saudi Arabia,14/06/2018,05:00,,,
+A,Egypt,Uruguay,15/06/2018,00:01,,,
+B,Morocco,Iran,15/06/2018,00:01,00:00,01:00,
+B,Portugal,Spain,15/06/2018,03:03,02:02,02:02,
+C,France,Australia,16/06/2018,02:01,02:01,02:01,
+C,Peru,Denmark,16/06/2018,00:01,01:02,00:01,
+D,Argentina,Iceland,16/06/2018,01:01,03:01,03:00,
+D,Croatia,Nigeria,16/06/2018,02:00,01:01,02:01,
+E,Costa Rica,Serbia,17/06/2019,00:01,01:01,01:00,00:01
+E,Brazil,Switzerland,17/06/2019,01:01,03:00,02:00,02:00
+F,Germany,Mexico,17/06/2019,00:01,02:00,02:01,01:01
+F,Sweden,South Korea,18/06/2019,,02:00,02:01,01:01
+G,Belgium,Panama,18/06/2019,,03:00,02:00,02:01
+G,Tunisia,England,18/06/2019,,00:01,00:02,00:01
+A,Russia,Egypt,19/06/2018,,02:01,02:00,03:01
+H,Colombia,Japan,19/06/2018,,02:01,01:01,02:01
+H,Poland,Senegal,19/06/2018,,02:00,02:00,01:00
+A,Uruguay,Saudi Arabia,20/06/2018,,02:00,03:01,02:00
+B,Portugal,Morocco,20/06/2018,,03:00,03:00,01:00
+B,Iran,Spain,20/06/2018,,00:03,00:02,00:01
+C,Denmark,Australia,21/06/2018,,01:01,,02:02
+C,France,Peru,21/06/2018,,01:01,,01:00
+D,Argentina,Croatia,21/06/2018,,01:01,,01:01
+D,Nigeria,Iceland,22/06/2018,,,,01:01
+E,Brazil,Costa Rica,22/06/2018,,,,
+E,Serbia,Switzerland,22/06/2018,,,,
+F,South Korea,Mexico,23/06/2018,,,,
+F,Germany,Sweden,23/06/2018,,,,
+G,Belgium,Tunisia,23/06/2018,,,,
+G,England,Panama,24/06/2018,,,,
+H,Japan,Senegal,24/06/2018,,,,
+H,Poland,Colombia,24/06/2018,,,,
+A,Saudi Arabia,Egypt,25/06/2018,,,,
+A,Uruguay,Russia,25/06/2018,,,,
+B,Iran,Portugal,25/06/2018,,,,
+B,Spain,Morocco,25/06/2018,,,,
+C,Australia,Peru,26/06/2018,,,,
+C,Denmark,France,26/06/2018,,,,
+D,Iceland,Croatia,26/06/2018,,,,
+D,Nigeria,Argentina,26/06/2018,,,,
+E,Serbia,Brazil,27/06/2018,,,,
+E,Switzerland,Costa Rica,27/06/2018,,,,
+F,South Korea,Germany,27/06/2018,,,,
+F,Mexico,Sweden,27/06/2018,,,,
+G,England,Belgium,28/06/2018,,,,
+G,Panama,Tunisia,28/06/2018,,,,
+H,Japan,Poland,28/06/2018,,,,
+H,Senegal,Colombia,28/06/2018,,,,
