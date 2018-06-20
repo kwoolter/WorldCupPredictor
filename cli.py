@@ -13,7 +13,7 @@ class WCCLI(cmd.Cmd):
         self.model = None
 
     def do_start(self, args):
-        """Start the game"""
+        """Load all of the fixtures and predictions"""
         try:
             self.model = model.FixtureFactory()
             self.model.load()
@@ -21,7 +21,7 @@ class WCCLI(cmd.Cmd):
             print(str(err))
 
     def do_print(self, args):
-        """Print the game"""
+        """Print all of the loaded details"""
         try:
             self.model.print()
         except Exception as err:
@@ -45,14 +45,14 @@ class WCCLI(cmd.Cmd):
             print(str(err))
 
     def do_groups(self, args):
-        """Print Groups"""
+        """Print Group details"""
         try:
             self.model.print_groups()
         except Exception as err:
             print(str(err))
 
     def do_teams(self, args):
-        """Print Teams"""
+        """Print ALL Teams"""
         try:
             self.model.print_teams()
         except Exception as err:

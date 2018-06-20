@@ -224,15 +224,8 @@ class FixtureFactory:
 
     def print(self):
 
-        print("\nTeams")
-        print("{0}".format(self.teams))
-
-        print("\nGroups")
-        for group in sorted(list(self.groups.keys())):
-            teams = sorted(list(self.groups[group]))
-            print("Group {0}:".format(group))
-            for team in teams:
-                print("\t{0}".format(team))
+        self.print_groups()
+        self.print_teams()
 
         print("\nResults")
         for fixture in self.fixtures:
@@ -246,6 +239,7 @@ class FixtureFactory:
                 print(prediction)
 
     def print_player_scores(self):
+
         hst = HighScoreTable("World Cup Predictor")
 
         for player in self.scores.keys():
@@ -265,7 +259,7 @@ class FixtureFactory:
 
             teams.sort(reverse=True)
             print("\nGroup {0}".format(group))
-            row_format = "{0:^14} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3} {8:^3}"
+            row_format = "{0:^13} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3} {8:^3}"
             print(row_format.format("Team", "P", "W", "D", "L", "F", "A", "GD", "Pts"))
             for team in teams:
                 print(row_format.format(team.name, team.played, team.won, team.drawn, team.lost,
@@ -274,10 +268,12 @@ class FixtureFactory:
 
     def print_teams(self):
         print("\nTeams")
+        row_format = "{0:^13} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3} {8:^3}"
+        print(row_format.format("Team", "P", "W", "D", "L", "F", "A", "GD", "Pts"))
         for team_name in sorted(list(self.teams.keys())):
             team = self.teams[team_name]
-            print("{0} {6}pts:W:{1} L:{2} D:{3} F:{4} A:{5}".format(team.name, team.won, team.lost, team.drawn,
-                                                                    team.goals_for, team.goals_against, team.points))
+            print(row_format.format(team.name, team.played, team.won, team.drawn, team.lost,
+                                    team.goals_for, team.goals_against, team.goal_diff, team.points))
         print("\n")
 
 
