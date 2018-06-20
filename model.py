@@ -22,11 +22,9 @@ class Team:
     def played(self):
         return self.won + self.drawn + self.lost
 
-
     @property
     def goal_diff(self):
         return self.goals_for - self.goals_against
-
 
     def __lt__(self, other_team):
         if self.points > other_team.points:
@@ -147,6 +145,8 @@ class Score:
 class Player:
     def __init__(self, name: str):
         self.name = name
+        self.correct_result = 0
+        self.exact_result = 0
 
 
 class FixtureFactory:
@@ -171,7 +171,7 @@ class FixtureFactory:
 
             # For each row in the file....
             for row in reader:
-                print(str(row))
+                # print(str(row))
                 group = row.get("Group")
                 team_a_name = row.get("TeamA")
                 team_b_name = row.get("TeamB")
@@ -195,8 +195,6 @@ class FixtureFactory:
                     self.groups[group] = set()
 
                 self.groups[group] = self.groups[group] | {team_a_name, team_b_name}
-
-
 
                 # loop through all of the header fields except the first 5 columns...
                 for i in range(5, len(header)):
@@ -247,7 +245,6 @@ class FixtureFactory:
             for prediction in self.predictions[player]:
                 print(prediction)
 
-
     def print_player_scores(self):
         hst = HighScoreTable("World Cup Predictor")
 
@@ -268,13 +265,12 @@ class FixtureFactory:
 
             teams.sort(reverse=True)
             print("\nGroup {0}".format(group))
-            row_format =  "{0:^14} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3}"
-            print(row_format.format("Team","W","D","L","F","A","GD","Pts"))
+            row_format = "{0:^14} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3} {8:^3}"
+            print(row_format.format("Team", "P", "W", "D", "L", "F", "A", "GD", "Pts"))
             for team in teams:
-                print(row_format.format(team.name, team.won, team.drawn, team.lost,
+                print(row_format.format(team.name, team.played, team.won, team.drawn, team.lost,
                                         team.goals_for, team.goals_against, team.goal_diff, team.points))
         print("\n")
-
 
     def print_teams(self):
         print("\nTeams")
@@ -283,6 +279,7 @@ class FixtureFactory:
             print("{0} {6}pts:W:{1} L:{2} D:{3} F:{4} A:{5}".format(team.name, team.won, team.lost, team.drawn,
                                                                     team.goals_for, team.goals_against, team.points))
         print("\n")
+
 
 from operator import itemgetter
 import pickle
@@ -365,3 +362,64 @@ class HighScoreTable():
             for i in range(len(self.table)):
                 name, score = self.table[i]
                 print("%i. %s - %s%s" % (i + 1, name, self.prefix, format(score, ",d")))
+
+
+def pick(object_type: str, objects: list, auto_pick: bool = False):
+    '''pick() -  Function to present a menu to pick an object from a list of objects
+    auto_pick means if the list has only one item then automatically pick that item'''
+
+    selected_object = None
+    choices = len(objects)
+    vowels = "AEIOU"
+    if object_type[0].upper() in vowels:
+        a_or_an = "an"
+    else:
+        a_or_an = "a"
+
+    # If the list of objects is no good the raise an exception
+    if objects is None or choices == 0:
+        raise (Exception("No %s to pick from." % object_type))
+
+    # If you selected auto pick and there is only one object in the list then pick it
+    if auto_pick is True and choices == 1:
+        selected_object = objects[0]
+
+    # While an object has not yet been picked...
+    while selected_object == None:
+
+        # Print the menu of available objects to select
+        print("Select %s %s:-" % (a_or_an, object_type))
+
+        for i in range(0, choices):
+            print("\t%i) %s" % (i + 1, str(objects[i])))
+
+        # Along with an extra option to cancel selection
+        print("\t%i) Cancel" % (choices + 1))
+
+        # Get the user's selection and validate it
+        choice = input("%s?" % object_type)
+        if is_numeric(choice) is not None:
+            choice = int(choice)
+
+            if 0 < choice <= choices:
+                selected_object = objects[choice - 1]
+                logging.info("pick(): You chose %s %s." % (object_type, str(selected_object)))
+            elif choice == (choices + 1):
+                raise (Exception("You cancelled. No %s selected" % object_type))
+            else:
+                print("Invalid choice '%i' - try again." % choice)
+        else:
+            print("You choice '%s' is not a number - try again." % choice)
+
+    return selected_object
+
+
+def is_numeric(s):
+    try:
+        x = int(s)
+    except:
+        try:
+            x = float(s)
+        except:
+            x = None
+    return x
