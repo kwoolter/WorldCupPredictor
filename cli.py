@@ -57,3 +57,8 @@ class WCCLI(cmd.Cmd):
             self.model.print_teams()
         except Exception as err:
             print(str(err))
+
+    def do_quit(self, args):
+        '''End the session'''
+        print("by bye")
+        exit(0)
