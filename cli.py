@@ -60,5 +60,5 @@ class WCCLI(cmd.Cmd):
 
     def do_quit(self, args):
         '''End the session'''
-        print("by bye")
+        print("bye bye")
         exit(0)
