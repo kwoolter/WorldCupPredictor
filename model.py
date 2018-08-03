@@ -161,7 +161,7 @@ class FixtureFactory:
         print("\nLoading fixtures...")
 
         # Attempt to open the file
-        with open(".\\data\\fixtures.csv", 'r') as object_file:
+        with open(".\\data\\PL_fixtures.csv", 'r') as object_file:
 
             # Load all rows in as a dictionary
             reader = csv.DictReader(object_file)
@@ -259,7 +259,7 @@ class FixtureFactory:
 
             teams.sort(reverse=True)
             print("\nGroup {0}".format(group))
-            row_format = "{0:^13} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3} {8:^3}"
+            row_format = "{0:^25} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3} {8:^3}"
             print(row_format.format("Team", "P", "W", "D", "L", "F", "A", "GD", "Pts"))
             for team in teams:
                 print(row_format.format(team.name, team.played, team.won, team.drawn, team.lost,
@@ -268,7 +268,7 @@ class FixtureFactory:
 
     def print_teams(self):
         print("\nTeams")
-        row_format = "{0:^13} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3} {8:^3}"
+        row_format = "{0:^25} {1:^3} {2:^3} {3:^3} {4:^3} {5:^3} {6:^3} {7:^3} {8:^3}"
         print(row_format.format("Team", "P", "W", "D", "L", "F", "A", "GD", "Pts"))
         for team_name in sorted(list(self.teams.keys())):
             team = self.teams[team_name]
