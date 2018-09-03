@@ -38,7 +38,9 @@ class WCCLI(cmd.Cmd):
         """Print specific player's predictions and scores"""
         try:
             player_name = model.pick("Player", list(self.model.predictions.keys()))
-            for predo in self.model.predictions[player_name]:
+            predos = list(self.model.predictions[player_name])
+            predos.sort(reverse=False)
+            for predo in predos:
                 print(predo)
 
         except Exception as err:
