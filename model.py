@@ -63,14 +63,19 @@ class Fixture:
         return str
 
     def __lt__(self, other_fixture):
-        if self.group > other_fixture.group:
+        assert isinstance(other_fixture, Fixture)
+        if self.group < other_fixture.group:
+            return True
+        elif self.group > other_fixture.group:
             return False
+        elif self.when < other_fixture.when:
+            return True
         elif self.when > other_fixture.when:
             return False
-        elif self.team_a.name > other_fixture.team_a.name:
-            return False
-        else:
+        elif self.team_a.name < other_fixture.team_a.name:
             return True
+        else:
+            return False
 
     def is_played(self):
         if self.score.is_valid() is True:
