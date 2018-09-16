@@ -27,6 +27,8 @@ class Team:
         return self.goals_for - self.goals_against
 
     def __lt__(self, other_team):
+        assert isinstance(other_team, Team)
+
         if self.points > other_team.points:
             return False
         elif self.points < other_team.points:
@@ -169,6 +171,7 @@ class FixtureFactory:
         self.fixtures = []
         self.predictions = {}
         self.scores = {}
+        self.score_details = {}
         self.groups = {}
         self.teams = {}
 
@@ -225,10 +228,20 @@ class FixtureFactory:
                     if player_name not in self.scores.keys():
                         self.scores[player_name] = 0
 
+                    if player_name not in self.score_details.keys():
+                        self.score_details[player_name] = {}
+
                     prediction = Fixture(team_a, team_b, when, group, predicted_score)
                     actual = Score(score)
                     predo = Score(predicted_score)
                     points = actual.compare(predo)
+
+                    if points not in self.score_details[player_name].keys():
+                        self.score_details[player_name][points] = 0
+
+                    if actual.is_valid() is True:
+                        self.score_details[player_name][points] += 1
+
                     prediction.points = points
                     self.scores[player_name] += points
                     self.predictions[player_name].append(prediction)
@@ -263,6 +276,16 @@ class FixtureFactory:
 
         hst.print()
         print("\n")
+
+
+        print("\nPrediction Details:")
+        for player in sorted(list(self.score_details.keys())):
+            print("Player {0} predictions:".format(player))
+            for point in sorted(list(self.score_details[player].keys()), reverse=True):
+                count = self.score_details[player][point]
+                print("\tScore {0} x {1} = {2}".format(point, count, point * count))
+            matches = sum(list(self.score_details[player].values()))
+            print("\tTotal = {0} from {1} matches (Avg={2:.2}, Max points={3})".format(self.scores[player],matches,self.scores[player]/matches, matches*Score.EXACT))
 
     def print_groups(self):
         print("\nGroups")
