@@ -250,6 +250,8 @@ class FixtureFactory:
             # Close the file
             object_file.close()
 
+        print("\nFixtures loaded.")
+
     def print(self):
 
         self.print_groups()
@@ -275,17 +277,17 @@ class FixtureFactory:
             hst.add(player, self.scores[player])
 
         hst.print()
-        print("\n")
-
 
         print("\nPrediction Details:")
         for player in sorted(list(self.score_details.keys())):
             print("Player {0} predictions:".format(player))
             for point in sorted(list(self.score_details[player].keys()), reverse=True):
                 count = self.score_details[player][point]
-                print("\tScore {0} x {1} = {2}".format(point, count, point * count))
+                print("\tScore {0} x {1} = {2} pts".format(point, count, point * count))
             matches = sum(list(self.score_details[player].values()))
-            print("\tTotal = {0} from {1} matches (Avg={2:.2}, Max points={3})".format(self.scores[player],matches,self.scores[player]/matches, matches*Score.EXACT))
+            print("\tTotal = {0} pts from {1} matches (Avg={2:.2}, Max points={3})".format(self.scores[player],matches,self.scores[player]/matches, matches*Score.EXACT))
+
+        print("\n")
 
     def print_groups(self):
         print("\nGroups")

@@ -37,7 +37,7 @@ class WCCLI(cmd.Cmd):
     def do_predos(self, args):
         """Print specific player's predictions and scores"""
         try:
-            player_name = model.pick("Player", list(self.model.predictions.keys()))
+            player_name = model.pick("Player", sorted(list(self.model.predictions.keys())))
             predos = list(self.model.predictions[player_name])
             predos.sort(reverse=False)
             for predo in predos:
