@@ -46,6 +46,11 @@ class WCCLI(cmd.Cmd):
         except Exception as err:
             print(str(err))
 
+    def do_history(self, args):
+        """Print history of scores by date"""
+        self.model.print_player_score_history()
+
+
     def do_groups(self, args):
         """Print Group details"""
         try:
