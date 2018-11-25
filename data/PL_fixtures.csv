@@ -40,28 +40,28 @@ PL,Cardiff City,Fulham,20/10/2018,04:02,01:02,01:01,02:02,01:01
 PL,Chelsea,Manchester United,20/10/2018,02:02,02:00,03:01,02:01,01:00
 PL,Huddersfield Town,Liverpool,20/10/2018,00:01,00:03,00:03,01:02,00:02
 PL,Manchester City,Burnley,20/10/2018,05:00,03:00,03:00,02:01,04:00
-PL,Fulham,AFC Bournemouth,27/10/2018,,01:03,01:01,02:02,00:01
-PL,Liverpool,Cardiff City,27/10/2018,,03:00,04:00,02:01,03:00
-PL,Burnley,Chelsea,28/10/2018,,01:03,01:02,00:02,00:02
-PL,Manchester United,Everton,28/10/2018,,01:01,02:01,01:01,01:01
-PL,Tottenham Hotspur,Manchester City,29/10/2018,,01:03,00:03,02:03,01:02
-PL,AFC Bournemouth,Manchester United,03/11/2018,,,,,
-PL,Arsenal,Liverpool,03/11/2018,,,,,
-PL,Chelsea,Crystal Palace,03/11/2018,,,,,
-PL,Huddersfield Town,Fulham,03/11/2018,,,,,
-PL,Manchester City,Southampton,03/11/2018,,,,,
-PL,Chelsea,Everton,10/11/2018,,,,,
-PL,Liverpool,Fulham,10/11/2018,,,,,
-PL,Manchester City,Manchester United,10/11/2018,,,,,
-PL,Fulham,Southampton,24/11/2018,,,,,
-PL,Manchester United,Crystal Palace,24/11/2018,,,,,
-PL,Tottenham Hotspur,Chelsea,24/11/2018,,,,,
-PL,Watford,Liverpool,24/11/2018,,,,,
-PL,West Ham United,Manchester City,24/11/2018,,,,,
-PL,Chelsea,Fulham,01/12/2018,,,,,
-PL,Liverpool,Everton,01/12/2018,,,,,
-PL,Manchester City,AFC Bournemouth,01/12/2018,,,,,
-PL,Southampton,Manchester United,01/12/2018,,,,,
+PL,Fulham,AFC Bournemouth,27/10/2018,00:03,01:03,01:01,02:02,00:01
+PL,Liverpool,Cardiff City,27/10/2018,04:01,03:00,04:00,02:01,03:00
+PL,Burnley,Chelsea,28/10/2018,00:04,01:03,01:02,00:02,00:02
+PL,Manchester United,Everton,28/10/2018,02:01,01:01,02:01,01:01,01:01
+PL,Tottenham Hotspur,Manchester City,29/10/2018,00:01,01:03,00:03,02:03,01:02
+PL,AFC Bournemouth,Manchester United,03/11/2018,01:02,02:02,00:01,01:01,01:00
+PL,Arsenal,Liverpool,03/11/2018,01:01,01:01,01:02,01:02,00:01
+PL,Chelsea,Crystal Palace,04/11/2018,03:01,03:00,03:01,02:01,02:00
+PL,Manchester City,Southampton,04/11/2018,06:01,04:00,02:00,01:00,04:00
+PL,Huddersfield Town,Fulham,05/11/2018,01:00,01:01,01:01,00:00,01:01
+PL,Chelsea,Everton,11/11/2018,00:00,03:01,01:00,02:01,02:00
+PL,Liverpool,Fulham,11/11/2018,02:00,04:00,02:00,03:01,03:00
+PL,Manchester City,Manchester United,11/11/2018,03:01,02:02,03:00,04:01,05:00
+PL,Fulham,Southampton,24/11/2018,03:02,01:01,02:01,01:02,01:01
+PL,Manchester United,Crystal Palace,24/11/2018,00:00,02:01,02:01,01:01,03:00
+PL,Tottenham Hotspur,Chelsea,24/11/2018,03:01,01:01,01:01,01:02,00:01
+PL,Watford,Liverpool,24/11/2018,00:03,00:02,00:03,02:04,00:02
+PL,West Ham United,Manchester City,24/11/2018,00:04,01:03,00:03,01:03,00:04
+PL,Chelsea,Fulham,01/12/2018,,03:00,,,
+PL,Liverpool,Everton,01/12/2018,,02:01,,,
+PL,Manchester City,AFC Bournemouth,01/12/2018,,04:00,,,
+PL,Southampton,Manchester United,01/12/2018,,01:01,,,
 PL,Burnley,Liverpool,04/12/2018,,,,,
 PL,Fulham,Leicester City,04/12/2018,,,,,
 PL,Manchester United,Arsenal,04/12/2018,,,,,
