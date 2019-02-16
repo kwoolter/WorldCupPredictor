@@ -1,5 +1,6 @@
 import cmd
 import model
+import charts
 
 class WCCLI(cmd.Cmd):
 
@@ -50,6 +51,10 @@ class WCCLI(cmd.Cmd):
         """Print history of scores by date"""
         self.model.print_player_score_history()
 
+
+    def do_chart(self, args):
+        chart = charts.ScoresChart(self.model)
+        chart.draw()
 
     def do_groups(self, args):
         """Print Group details"""

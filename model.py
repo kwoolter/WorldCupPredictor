@@ -312,6 +312,22 @@ class FixtureFactory:
                 running_totals[player_name] += scores[player_name]
                 print("{0};{1};{2}".format(datetime.datetime.strftime(fixture_date, "%d/%m/%Y"), player_name, running_totals[player_name]))
 
+    def player_score_history(self):
+        score_history = {}
+        for player_name in self.predictions.keys():
+            predos = list(self.predictions[player_name])
+            for predo in predos:
+                if predo.is_played() is True:
+                    fixture_date = predo.when
+                    if player_name not in score_history.keys():
+                        score_history[player_name] = {}
+                    if fixture_date not in score_history[player_name].keys():
+                        score_history[player_name][fixture_date] = 0
+                    score_history[player_name][fixture_date] += predo.points
+
+        return score_history
+
+
     def print_groups(self):
         print("\nGroups")
         for group in sorted(list(self.groups.keys())):

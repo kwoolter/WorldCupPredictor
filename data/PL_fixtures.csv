@@ -93,31 +93,31 @@ PL,Arsenal,Fulham,01/01/2019,04:01,02:00,03:00,01:01,02:00
 PL,Chelsea,Southampton,02/01/2019,00:00,02:00,04:01,01:02,03:01
 PL,Newcastle United,Manchester United,02/01/2019,00:02,00:04,01:05,01:02,01:01
 PL,Manchester City,Liverpool,03/01/2019,02:01,01:02,03:02,02:04,04:03
-PL,Brighton & Hove Albion,Liverpool,12/01/2019,,01:03,,,
-PL,Burnley,Fulham,12/01/2019,,02:00,,,
-PL,Chelsea,Newcastle United,12/01/2019,,02:00,,,
-PL,Tottenham Hotspur,Manchester United,13/01/2019,,02:00,,,
-PL,Manchester City,Wolverhampton Wanderers,14/01/2019,,02:01,,,
-PL,Liverpool,Crystal Palace,19/01/2019,,,,,
-PL,Manchester United,Brighton & Hove Albion,19/01/2019,,,,,
-PL,Arsenal,Chelsea,19/01/2019,,,,,
-PL,Huddersfield Town,Manchester City,20/01/2019,,,,,
-PL,Fulham,Tottenham Hotspur,20/01/2019,,,,,
-PL,AFC Bournemouth,Chelsea,29/01/2019,,,,,
-PL,Fulham,Brighton & Hove Albion,29/01/2019,,,,,
-PL,Manchester United,Burnley,29/01/2019,,,,,
-PL,Newcastle United,Manchester City,29/01/2019,,,,,
-PL,Liverpool,Leicester City,30/01/2019,,,,,
+PL,Brighton & Hove Albion,Liverpool,12/01/2019,00:01,01:03,01:04,01:03,00:02
+PL,Burnley,Fulham,12/01/2019,02:01,02:00,01:02,01:01,00:01
+PL,Chelsea,Newcastle United,12/01/2019,02:01,02:00,03:00,02:01,02:01
+PL,Tottenham Hotspur,Manchester United,13/01/2019,00:01,02:00,02:04,02:02,01:02
+PL,Manchester City,Wolverhampton Wanderers,14/01/2019,03:00,02:01,03:00,03:02,04:00
+PL,Liverpool,Crystal Palace,19/01/2019,04:03,03:00,04:00,03:01,03:00
+PL,Manchester United,Brighton & Hove Albion,19/01/2019,02:01,02:01,05:00,01:01,02:00
+PL,Arsenal,Chelsea,19/01/2019,02:00,01:02,01:02,01:02,00:01
+PL,Huddersfield Town,Manchester City,20/01/2019,01:03,00:04,01:03,02:04,00:03
+PL,Fulham,Tottenham Hotspur,20/01/2019,01:02,00:02,00:03,02:02,00:02
+PL,Fulham,Brighton & Hove Albion,29/01/2019,04:02,01:01,01:00,00:01,01:00
+PL,Manchester United,Burnley,29/01/2019,02:02,03:01,05:00,02:02,03:00
+PL,Newcastle United,Manchester City,29/01/2019,02:01,00:02,01:04,01:03,00:02
+PL,AFC Bournemouth,Chelsea,30/01/2019,00:04,01:02,01:03,02:02,00:01
+PL,Liverpool,Leicester City,30/01/2019,01:01,02:00,03:00,03:01,03:00
 PL,Chelsea,Huddersfield Town,02/02/2019,,,,,
 PL,Crystal Palace,Fulham,02/02/2019,,,,,
-PL,Leicester City,Manchester United,03/02/2019,,,,,
-PL,Manchester City,Arsenal,03/02/2019,,,,,
-PL,West Ham United,Liverpool,04/02/2019,,,,,
-PL,Fulham,Manchester United,09/02/2019,,,,,
-PL,Liverpool,AFC Bournemouth,09/02/2019,,,,,
-PL,Manchester City,Chelsea,10/02/2019,,,,,
+PL,Leicester City,Manchester United,03/02/2019,00:01,02:01,01:04,01:02,01:01
+PL,Manchester City,Arsenal,03/02/2019,03:01,03:00,02:01,03:02,02:00
+PL,West Ham United,Liverpool,04/02/2019,01:01,01:02,00:04,01:01,00:01
+PL,Everton,Manchester City,06/02/2019,00:02,01:02,01:02,01:03,00:02
+PL,Fulham,Manchester United,09/02/2019,00:03,00:02,01:04,01:02,01:02
+PL,Liverpool,AFC Bournemouth,09/02/2019,03:00,02:00,05:00,04:01,03:00
+PL,Manchester City,Chelsea,10/02/2019,06:00,02:00,01:00,03:02,02:00
 PL,West Ham United,Fulham,22/02/2019,,,,,
-PL,Everton,Manchester City,23/02/2019,,,,,
 PL,Chelsea,Brighton & Hove Albion,24/02/2019,,,,,
 PL,Manchester United,Liverpool,24/02/2019,,,,,
 PL,Manchester City,West Ham United,26/02/2019,,,,,

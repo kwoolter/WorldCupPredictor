@@ -8,3 +8,4 @@
 * Add new columns for each person to enter their predictions.
 * Enter the actual result in the `Score` column.
 * You get 1 point for the right type of result and 3 points for the exact result.
+* Added 'chart' command to show graphical scores
