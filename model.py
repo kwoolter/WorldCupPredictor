@@ -1,5 +1,6 @@
 import csv
 import datetime
+import os
 
 
 class Team:
@@ -178,8 +179,10 @@ class FixtureFactory:
     def load(self):
         print("\nLoading fixtures...")
 
+        filename= os.path.join(os.path.dirname(__file__),"data", "PL_fixtures.csv")
+
         # Attempt to open the file
-        with open(".\\data\\PL_fixtures.csv", 'r') as object_file:
+        with open(filename, 'r') as object_file:
 
             # Load all rows in as a dictionary
             reader = csv.DictReader(object_file)
