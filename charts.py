@@ -14,7 +14,7 @@ class ScoresChart:
         #plt.figure(1, figsize=(12, 5))
 
         # Player Score History
-        fig = plt.figure(1, figsize=(6,6))
+        fig = plt.figure(1, figsize=(6,8))
 
 
         plt.subplot(2,1, 1)
@@ -52,9 +52,9 @@ class ScoresChart:
         min_score = np.min(y)
         max_score = np.max(y)
 
-        plt.ylim(bottom=(min_score - 10))
+        plt.ylim(bottom=(max(0,min_score - 10)))
         plt.ylim(top=(max_score + 10))
-        plt.bar(x_pos,y)
+        plt.bar(x_pos,y, align="center")
         plt.xticks(x_pos,x)
 
         ax = plt.gca()
