@@ -11,13 +11,16 @@ class ScoresChart:
     def draw(self):
 
 
-        plt.figure(1, figsize=(12, 5))
+        #plt.figure(1, figsize=(12, 5))
 
         # Player Score History
-        plt.subplot(1, 2, 1)
+        fig = plt.figure(1, figsize=(6,6))
+
+
+        plt.subplot(2,1, 1)
 
         plt.ylabel('Score')
-        plt.xlabel('Time')
+        plt.xlabel('Date')
         plt.title("Score History")
 
         player_scores = self.model.player_score_history()
@@ -34,7 +37,7 @@ class ScoresChart:
         plt.ylim(bottom=0)
 
         # Total Player Scores
-        plt.subplot(1, 2, 2)
+        plt.subplot(2,1, 2)
 
         plt.ylabel('Score')
         plt.xlabel('Player')
@@ -47,8 +50,10 @@ class ScoresChart:
         x_pos = np.arange(len(x))
         y = list(self.model.scores.values())
         min_score = np.min(y)
+        max_score = np.max(y)
 
-        #plt.ylim(bottom=(min_score - 10))
+        plt.ylim(bottom=(min_score - 10))
+        plt.ylim(top=(max_score + 10))
         plt.bar(x_pos,y)
         plt.xticks(x_pos,x)
 
@@ -56,6 +61,7 @@ class ScoresChart:
 
         add_value_labels(ax, spacing=2)
 
+        fig.tight_layout()
         plt.show()
 
 
