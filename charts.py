@@ -44,11 +44,13 @@ class ScoresChart:
         ax.yaxis.grid(True)
 
         x = list(self.model.scores.keys())
+        x_pos = np.arange(len(x))
         y = list(self.model.scores.values())
         min_score = np.min(y)
 
         #plt.ylim(bottom=(min_score - 10))
-        plt.bar(x,y)
+        plt.bar(x_pos,y)
+        plt.xticks(x_pos,x)
 
         ax = plt.gca()
 
