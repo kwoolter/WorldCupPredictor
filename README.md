@@ -11,4 +11,4 @@
 * Added 'chart' command to show graphical scores
 
 # Screen shots
-<img src="https://github.com/kwoolter/TileGame/blob/Kingdom2/view/screenshots/Capture1.PNG?raw=true" alt="cards1">
+<img src="https://github.com/kwoolter/WorldCupPredictor/blob/master/screenshot1.PNG?raw=true" alt="chart1">
