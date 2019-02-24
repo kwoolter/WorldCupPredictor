@@ -2,21 +2,18 @@ import matplotlib.pyplot as plt
 import model
 import numpy as np
 
+
 class ScoresChart:
 
     def __init__(self, model : model.FixtureFactory):
-        self.model = model
 
+        self.model = model
 
     def draw(self):
 
-
-        #plt.figure(1, figsize=(12, 5))
-
-        # Player Score History
         fig = plt.figure(1, figsize=(6,8))
 
-
+        # Player Score History
         plt.subplot(2,1, 1)
 
         plt.ylabel('Score')
