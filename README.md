@@ -12,4 +12,4 @@
 * See latest scores here https://kwoolter.github.io/WorldCupPredictor/
 
 # Screen shots
-<img src="https://github.com/kwoolter/WorldCupPredictor/blob/master/scores.PNG?raw=true" alt="Scores">
+<img src="https://github.com/kwoolter/WorldCupPredictor/blob/master/scores.png" alt="Scores">
