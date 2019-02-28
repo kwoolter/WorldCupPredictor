@@ -59,7 +59,11 @@ class ScoresChart:
         add_value_labels(ax, spacing=2)
 
         fig.tight_layout()
+
+        plt.savefig('scores.png')
         plt.show()
+
+
 
 
 def add_value_labels(ax, spacing=5):
