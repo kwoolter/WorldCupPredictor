@@ -124,11 +124,11 @@ PL,Southampton,Fulham,27/02/2019,02:00,02:01,01:00,01:01,01:00
 PL,Chelsea,Tottenham Hotspur,27/02/2019,02:00,01:01,02:01,02:01,02:01
 PL,Crystal Palace,Manchester United,27/02/2019,01:03,02:01,00:02,01:02,00:01
 PL,Liverpool,Watford,27/02/2019,05:00,02:00,03:01,03:01,02:00
-PL,AFC Bournemouth,Manchester City,02/03/2019,,,,,
-PL,Tottenham Hotspur,Arsenal,02/03/2019,,,,,
-PL,Manchester United,Southampton,02/03/2019,,,,,
-PL,Everton,Liverpool,03/03/2019,,,,,
-PL,Fulham,Chelsea,03/03/2019,,,,,
+PL,AFC Bournemouth,Manchester City,02/03/2019,0:01,1:03,0:03,2:04,0:03
+PL,Tottenham Hotspur,Arsenal,02/03/2019,1:01,0:01,2:01,2:02,2:01
+PL,Manchester United,Southampton,02/03/2019,3:02,2:00,3:01,3:01,2:00
+PL,Everton,Liverpool,03/03/2019,,1:02,0:03,2:03,1:01
+PL,Fulham,Chelsea,03/03/2019,,0:02,1:03,2:03,1:00
 PL,Leicester City,Fulham,09/03/2019,,,,,
 PL,Manchester City,Watford,09/03/2019,,,,,
 PL,Arsenal,Manchester United,10/03/2019,,,,,
