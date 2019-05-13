@@ -11,5 +11,8 @@
 * Added 'chart' command to show graphical scores
 * See latest scores here https://kwoolter.github.io/WorldCupPredictor/
 
+
 # Screen shots
+Final scores in the 2018-2019 English Premier League:
+<br>
 <img src="https://github.com/kwoolter/WorldCupPredictor/blob/master/scores.png" alt="Scores">
